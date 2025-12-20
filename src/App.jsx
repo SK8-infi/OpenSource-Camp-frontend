@@ -3,11 +3,10 @@ import { AnimatePresence } from 'framer-motion';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
-import AdminRoute from './components/AdminRoute';
+import PageGuard from './components/PageGuard';
 import Login from './pages/Login';
-import Home from './pages/Home';
-import Analytics from './pages/Analytics';
-import AdminDashboard from './pages/AdminDashboard';
+import Page1 from './pages/Page1';
+import Page2 from './pages/Page2';
 import './App.css';
 
 function AppRoutes() {
@@ -17,32 +16,31 @@ function AppRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/login" element={<Login />} />
+        
+        {/* Learning Pages - Sequential */}
         <Route
-          path="/home"
+          path="/page/1"
           element={
             <ProtectedRoute>
-              <Home />
+              <PageGuard pageNumber={1}>
+                <Page1 />
+              </PageGuard>
             </ProtectedRoute>
           }
         />
         <Route
-          path="/analytics"
+          path="/page/2"
           element={
             <ProtectedRoute>
-              <Analytics />
+              <PageGuard pageNumber={2}>
+                <Page2 />
+              </PageGuard>
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/admin"
-          element={
-            <AdminRoute>
-              <AdminDashboard />
-            </AdminRoute>
-          }
-        />
-        <Route path="/" element={<Navigate to="/home" replace />} />
-        <Route path="*" element={<Navigate to="/home" replace />} />
+        {/* Default route - redirect to first page */}
+        <Route path="/" element={<Navigate to="/page/1" replace />} />
+        <Route path="*" element={<Navigate to="/page/1" replace />} />
       </Routes>
     </AnimatePresence>
   );
@@ -52,7 +50,16 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="min-h-screen bg-gray-900">
+        <div 
+          className="min-h-screen"
+          style={{
+            backgroundImage: 'url(/background1.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+          }}
+        >
           <Navbar />
           <AppRoutes />
         </div>
