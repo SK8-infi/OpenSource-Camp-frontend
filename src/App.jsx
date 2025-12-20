@@ -7,6 +7,10 @@ import PageGuard from './components/PageGuard';
 import Login from './pages/Login';
 import Page1 from './pages/Page1';
 import Page2 from './pages/Page2';
+import Page3 from './pages/Page3';
+import Page4 from './pages/Page4';
+import Page5 from './pages/Page5';
+import Page6 from './pages/Page6';
 import './App.css';
 
 function AppRoutes() {
@@ -34,6 +38,46 @@ function AppRoutes() {
             <ProtectedRoute>
               <PageGuard pageNumber={2}>
                 <Page2 />
+              </PageGuard>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/page/3"
+          element={
+            <ProtectedRoute>
+              <PageGuard pageNumber={3}>
+                <Page3 />
+              </PageGuard>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/page/4"
+          element={
+            <ProtectedRoute>
+              <PageGuard pageNumber={4}>
+                <Page4 />
+              </PageGuard>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/page/5"
+          element={
+            <ProtectedRoute>
+              <PageGuard pageNumber={5}>
+                <Page5 />
+              </PageGuard>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/page/6"
+          element={
+            <ProtectedRoute>
+              <PageGuard pageNumber={6}>
+                <Page6 />
               </PageGuard>
             </ProtectedRoute>
           }

@@ -42,3 +42,8 @@ export const getUserProgress = async () => {
   return response.data;
 };
 
+export const markPageComplete = async (pageNumber) => {
+  const response = await userAPI.post('/complete-page', { pageNumber });
+  return response.data;
+};
+
