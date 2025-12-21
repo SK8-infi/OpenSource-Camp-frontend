@@ -59,7 +59,7 @@ const ProgressIndicator = () => {
       <div className="bg-black/90 backdrop-blur-sm rounded-lg pt-12 pb-6 px-6 border border-black">
         <div className="relative">
           {/* Background track */}
-          <div className="h-1 bg-gray-300 rounded-full"></div>
+          <div className="h-1 bg-white rounded-full"></div>
           
           {/* Progress fill */}
           <motion.div
@@ -105,8 +105,8 @@ const ProgressIndicator = () => {
                     completed 
                       ? 'text-green-600' 
                       : unlocked 
-                      ? 'text-gray-800' 
-                      : 'text-gray-400'
+                      ? 'text-white' 
+                      : 'text-white'
                   }`} 
                 />
               </motion.button>
