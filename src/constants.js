@@ -1,3 +1,3 @@
 // Google Form URL for registration
-export const REGISTER_FORM_URL = "https://forms.gle/xxxx";
+export const REGISTER_FORM_URL = "https://forms.gle/nYKhHsZfjycrw3LY6";
 
