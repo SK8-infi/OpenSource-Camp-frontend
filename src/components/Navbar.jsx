@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { LogOut, BookOpen, Code } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import ieeeLogo from '../assets/ieee logo.png';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -29,6 +30,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-2">
               <Code className="w-5 h-5 text-orange-400" />
               <span className="text-white font-bold text-base">OpenSource Camp</span>
+              <img src={ieeeLogo} alt="IEEE Logo" className="h-9 w-auto ml-2" />
             </div>
           </div>
           {user && (
